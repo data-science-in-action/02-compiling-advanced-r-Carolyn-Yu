@@ -1,0 +1,100 @@
+---
+title: "Problems and solutions about Adv-R"
+author: "Carolyn-Yu"
+date: "2020/3/19"
+output: pdf_document
+---
+
+The version of R I'm using is R version 3.6.3
+
+## When I open the project(Adv-r.Rproj) using Rstudio:  
+Error in loadNamespace(name) : there is no package called ‘rmarkdown’
+
+So I install the package bookdown by
+```{r eval=FALSE}
+install.packages("rmarkdown")
+```
+
+## And then I install the “bookdown” package to compile the book:
+```{r eval=FALSE}
+install.packages("bookdown")
+bookdown::render_book("index.Rmd",output_format="bookdown::pdf_book")
+```
+
+## During the building process I meet some problems, I list my problems and solutions below:
+
+* The problem 1:   
+
+Q: The error that there is no package called “…”
+
+S: During the building process, I install some packages, such as dplyr, desc, sessioninfo, lobstr, ggplot2, devtools, sloop, DBI, RSQLite, zealot, profvis, bench, tidyr
+  
+  
+* The problem 2:    
+
+Q: Quitting from lines 223-235 (Introduction.Rmd) 
+Error in cat(paste0(contributors$desc, collapse = ", ")) :
+
+S: I add encoding="UTF-8" in line 224 of introduction.rmd to fix it.
+```{r eval=FALSE}
+contributors <- read.csv("contributors.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
+```
+  
+  
+* The problem 3:    
+
+Q: When I install the package “emo” with install.package:
+Warning in install.packages :
+  package ‘emo’ is not available (for R version 3.6.3)
+
+S: So I install the package ”devtools”, and then install the package “emo” from Hadley's github.com by
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("hadley/emo")
+```
+  
+  
+* The problem 4:    
+
+Q: Quitting from lines 209-221 (Big-picture.Rmd) 
+erro: The dbplyr package is required to communicate with database backends
+
+S: The solution:
+```{r eval=FALSE}
+install.packages("dbplyr")
+```
+  
+  
+* The problem 5:    
+
+Q: Quitting from lines 233-234 (Perf-measure.Rmd) 
+erro: `ggbeeswarm` must be installed to use `type = "beeswarm"` option
+
+S: The solution:
+```{r eval=FALSE}
+install.packages("dbplyr")
+```
+  
+  
+* The problem 6:    
+
+Q: ATeX failed to compile _main.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips.
+
+S: I find some relevant information on the Internet, and then I choose to use MiKTeX instead of TinyTex
+  
+  
+* The problem 7:    
+
+Q: LaTeX Error: Font inconsola & andale mono not found
+
+S:I download the “inconsola” and “andale mono” from Internet and then install them
+  
+  
+* The problem 8:   
+
+Q: LaTeX Error: File `xeCJK.sty' not found
+
+S: I install the package “xecjk” from MikTex Console
+  
+   
+Ending...
