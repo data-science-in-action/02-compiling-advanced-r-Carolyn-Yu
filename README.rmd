@@ -2,7 +2,10 @@
 title: "Problems and solutions about Adv-R"
 author: "Carolyn-Yu"
 date: "2020/3/19"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 The version of R I'm using is R version 3.6.3
@@ -72,7 +75,7 @@ erro: `ggbeeswarm` must be installed to use `type = "beeswarm"` option
 
 S: The solution:
 ```{r eval=FALSE}
-install.packages("dbplyr")
+install.packages("ggbeeswarm")
 ```
   
   
